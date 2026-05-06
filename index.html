@@ -958,6 +958,147 @@
   .fade-up:nth-child(3) { transition-delay: 0.2s; }
   .fade-up:nth-child(4) { transition-delay: 0.3s; }
 
+  /* ── DÉMO BANNER ── */
+  .demo-banner {
+    margin-top: 70px; /* Push below fixed nav */
+    background: linear-gradient(135deg, var(--noir) 0%, #2c3e50 100%);
+    position: relative;
+    padding: 3rem 5%;
+    text-align: center;
+    border-bottom: 4px solid var(--jaune);
+    overflow: hidden;
+  }
+
+  .demo-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 11px);
+    pointer-events: none;
+  }
+
+  .demo-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInDown 0.8s ease-out;
+  }
+
+  .demo-banner-badge {
+    display: inline-block;
+    background: rgba(240,165,0,0.2);
+    color: var(--jaune);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(240,165,0,0.5);
+  }
+
+  .demo-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .demo-banner p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .demo-banner-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .demo-btn-primary {
+    background: var(--jaune);
+    color: var(--noir);
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(240,165,0,0.3);
+  }
+
+  .demo-btn-primary:hover {
+    background: #f1b72a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(240,165,0,0.4);
+  }
+
+  .demo-btn-outline {
+    background: rgba(255,255,255,0.05);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s;
+  }
+
+  .demo-btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: white;
+  }
+  
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── AVANTAGES WEB ── */
+  .web-benefits {
+    background: white;
+    padding: 80px 5%;
+    text-align: center;
+  }
+  .web-benefits-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--noir);
+    margin-bottom: 3rem;
+  }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .benefit-card {
+    background: var(--creme);
+    padding: 2.5rem 2rem;
+    border-radius: 4px;
+    border-bottom: 3px solid var(--jaune);
+    transition: transform 0.3s;
+  }
+  .benefit-card:hover {
+    transform: translateY(-8px);
+  }
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .benefit-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--noir);
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
     .categories-grid { grid-template-columns: repeat(3, 1fr); }
@@ -1025,14 +1166,12 @@
   <div class="hero-overlay"></div>
   <div class="hero-pattern"></div>
   <div class="hero-content">
-    <div class="hero-badge">🇧🇫 Burkina Faso · Artisanat authentique</div>
+    <div class="hero-badge">💻 DÉVELOPPEMENT WEB SUR MESURE</div>
     <h1 class="hero-title">
-      L'élégance africaine,<br>
-      <em>fièrement Made in Burkina</em>
+      Je crée des sites web <em>modernes</em> pour PME
     </h1>
     <p class="hero-subtitle">
-      Des créations uniques tissées dans la tradition du Faso Dan Fani et du Wax,
-      réinventées avec une touche contemporaine par nos artisans burkinabés.
+      Voici un exemple de site e-commerce que je peux concevoir pour votre activité.
     </p>
     <div class="hero-buttons">
       <a href="#boutique" class="btn-primary">Découvrir la boutique</a>
@@ -1040,6 +1179,29 @@
     </div>
   </div>
   <div class="hero-scroll">Défiler</div>
+</section>
+
+<!-- PATTERN BAR -->
+<div class="pattern-border"></div>
+
+<!-- AVANTAGES WEB -->
+<section class="web-benefits">
+  <div class="section-label" style="justify-content: center;">VOS AVANTAGES</div>
+  <h2 class="web-benefits-title">Ce que ce site peut faire pour vous</h2>
+  <div class="benefits-grid">
+    <div class="benefit-card fade-up">
+      <div class="benefit-icon">🛍️</div>
+      <div class="benefit-text">Présenter vos produits en ligne</div>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-icon">🧲</div>
+      <div class="benefit-text">Attirer plus de clients</div>
+    </div>
+    <div class="benefit-card fade-up">
+      <div class="benefit-icon">📱</div>
+      <div class="benefit-text">Être visible sur téléphone</div>
+    </div>
+  </div>
 </section>
 
 <!-- PATTERN BAR -->
@@ -1375,14 +1537,14 @@ const products = [
   },
   {
     id:7, name:"Robe en faso dafani", cat:"femme", type:"traditionnel",
-    price:"22 000", img:"tradi2.jpg",
+    price:"22 000", img:"tradi2.png",
     badge:"badge-trad", badgeLabel:"Traditionnel",
     desc:"Robe en faso dafani, pour des sortie et cérémonie. Design moderne et élégante.",
     sizes:["S","M","L","XL"]
   },
   {
     id:8, name:"Complet Enfant (Moderne)", cat:"enfant", type:"moderne",
-    price:"9 500", img:"enfant2.jpg",
+    price:"9 500", img:"enfant2.png",
     badge:"badge-new", badgeLabel:"Nouveau",
     desc:"Jolie tenue enfant en wax coloré. Comfortable et facile à porter. Pour les petits qui veulent être stylés comme les grands !",
     sizes:["2-3 ans","4-5 ans","6-7 ans","8-9 ans"]
